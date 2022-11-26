@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<style>
+    #container {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background: yellow;
+    }
+    #animate {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: red;
+    }
+</style>
+
+<head>
+
+    <title>Кузя</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Style the header */
+        header {
+            background-color: #666;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+            float: left;
+            width: 30%;
+            height: 300px; /* only for demonstration, should be removed */
+            background: #ccc;
+            padding: 20px;
+        }
+
+        /* Style the list inside the menu */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        article {
+            float: left;
+            padding: 20px;
+            width: 70%;
+            background-color: #f1f1f1;
+            height: 1600px; /* only for demonstration, should be removed */
+        }
+
+        /* Clear floats after the columns */
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Style the footer */
+        footer {
+            background-color: #777;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+        @media (max-width: 600px) {
+            nav, article {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+
+
+
+    <meta charset="UTF-8">
+    <title>Кузя</title>
+    <link href="demo1.css" rel="stylesheet">
+    <link rel="icon" href="icon.jpg">
+
+    <title>Page Title</title>
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Дякую за лайк!";
+        }
+    </script>
+
+
+
+</head>
+<body>
+
+<header>
+    <h2>Кузя</h2>
+</header>
+
+<section>
+
+    <article>
+        <h1>Мій кіт Кузя</h1>
+        <img class="img1" src="Kuza.jpg">
+        <img class="img2" src="Kuza2.jpg">
+
+        <p>Мій кіт дуже любить гратися мишками але не любить гратися м'ячиками.Він дуже грайливий і класний.Я не уявляю свого життя без мого кота, Кузі.знаю Деякі люди говорять що чорні коти до невдач, але я знаю що це не так.Мій кіт незвичайний не із-за того що він чорний а із-за того що він дуже кумедний.Він не їсть рибу і не любить обніматися,Але я його дуже люблю.<a href="https://www.youtube.com/watch?v=RAVIVxXGPsE">цікаві факти про котів  джерело: <a href="https://www.youtube.com/">youtube</a></a>
+
+        <p><button onclick="myMove()">Click Me</button></p>
+
+        <div id ="container">
+            <div id ="animate"></div>
+        </div>
+
+        <script>
+            function myMove() {
+                let id = null;
+                const elem = document.getElementById("animate");
+                let pos = 0;
+                clearInterval(id);
+                id = setInterval(frame, 5);
+                function frame() {
+                    if (pos == 350) {
+                        clearInterval(id);
+                    } else {
+                        pos++;
+                        elem.style.top = pos + "px";
+                        elem.style.left = pos + "px";
+                    }
+                }
+            }
+        </script>
+
+
+        <div id="myChart" style="width:100%; max-width:600px; height:500px;"></div>
+
+        <script>
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Contry', 'Mhl'],
+                    ['паштет',55],
+                    ['Фелікс',49],
+                    ['сухий корм',35],
+                    ['сире м\'ясо',28],
+                    ['риба',15]
+                ]);
+
+                var options = {
+                    title:'що любить їсти мій кіт'
+                };
+
+                var chart = new google.visualization.BarChart(document.getElementById('myChart'));
+                chart.draw(data, options);
+            }
+        </script>
+
+
+        <table>
+            <tr>
+                <th>Назва</th>
+                <th>Ціна</th>
+                <th>Кількість</th>
+            </tr>
+            <tr>
+                <td>Лосось</td>
+                <td>102</td>
+                <td>1 шт.</td>
+            </tr>
+            <tr>
+                <td>Паштет</td>
+                <td>71</td>
+                <td>4 шт.</td>
+            </tr>
+        </table>
+    </article>
+
+
+
+    <svg height="130" width="500">
+        <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%"
+                      style="stop-color:rgb(0,111,254);stop-opacity:1" />
+                <stop offset="100%"
+                      style="stop-color:rgb(85,190,114);stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+        <text fill="#ffffff" font-size="45" font-family="Verdana"
+              x="50" y="86">Кузя</text>
+        Sorry, your browser does not support inline SVG.
+    </svg>
+
+</section>
+
+<footer>
+    <p id="demo">лайкни</p>
+    <button type="button" onclick="myFunction()">натисни тут</button>
+
+</footer>
+
+
+
+<script>
+    "use strict";
+
+    alert('Я не робот'); alert('приємного перегляду сайту');
+</script>
+
+
+
+
+</body>
+</html>
